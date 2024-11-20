@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts Management</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="create">
+    <h1>Create Post</h1>
+    <form action="/create" method="POST">
+        <input type="text" name="title" placeholder="Title" required>
+        <textarea name="description" placeholder="Description" required></textarea>
+        <input type="text" name="author" placeholder="Author" required>
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts Management</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Posts</h1>
+    <a href="/create" class="create-btn">Create New Post</a>
+    <ul>
+        <% if (posts.length === 0) { %>
+            <p>No posts available. Click "Create New Post" to add one!</p>
+        <% } else { %>
+            <% posts.forEach(post => { %>
+                <li>
+                    <h2><%= post.title %></h2>
+                    <p><%= post.description %></p>
+                    <p>Author: <%= post.author %></p>
+                    <a href="/edit/<%= post.id %>">Edit</a>
+                    <form class='delete'action="/delete/<%= post.id %>" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            <% }); %>
+        <% } %>
+    </ul>
+    <script src="/js/script.js"></script>
+</body>
+</html>

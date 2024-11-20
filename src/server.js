@@ -21,7 +21,13 @@ app.use(express.static(publicDir));
 app.use('/', postRoutes);
 
 // Sync database and start server
-sequelize.sync().then(() => {
-   console.log("Database synced!");
-   app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
-});
+sequelize.sync()
+   .then(() => {
+       console.log("Database synced!");
+       app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+   })
+   .catch((err) => {
+       console.error("Error syncing database:", err);
+   });
+   
+module.exports = app;
